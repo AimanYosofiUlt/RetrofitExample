@@ -19,4 +19,11 @@ public class MainActivityViewModel extends AndroidViewModel {
         userRepo = new UserRepo();
     }
 
+    public void login(String phone,String password){
+        userRepo.login(phone,password);
+    }
+
+    MutableLiveData<LoginRequest> getLoginRequest(){
+        return userRepo.loginRequest;
+    }
 }

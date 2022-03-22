@@ -22,10 +22,7 @@ import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 
 public interface JsonPlaceHolderApi {
-    @FormUrlEncoded
+
     @POST("user/login")
-    Call<LoginRequest> login(
-            @Field("user_phone") String phone,
-            @Field("login_password") String password
-    );
+    Call<LoginRequest> login(@Body LoginPostBody loginPostBody);
 }

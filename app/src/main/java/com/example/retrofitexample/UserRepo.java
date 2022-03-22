@@ -36,8 +36,9 @@ public class UserRepo {
         loginRequest = new MutableLiveData<>();
     }
 
-    public void login(String phone, String password) {
-        Call<LoginRequest> call = api.login(phone, password);
+    public void login(LoginPostBody loginPostBody) {
+
+        Call<LoginRequest> call = api.login(loginPostBody);
         call.enqueue(new Callback<LoginRequest>() {
             @Override
             public void onResponse(Call<LoginRequest> call, Response<LoginRequest> response) {

@@ -1,7 +1,11 @@
 package com.example.retrofitexample;
 
+import com.google.gson.annotations.SerializedName;
+
 public class LoginRequest {
+    @SerializedName("Data")
     Data data;
+    @SerializedName("Result")
     Result result;
 
     public LoginRequest(Data data, Result result) {

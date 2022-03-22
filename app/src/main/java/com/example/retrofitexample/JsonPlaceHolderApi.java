@@ -25,4 +25,5 @@ public interface JsonPlaceHolderApi {
 
     @POST("user/login")
     Call<LoginRequest> login(@Body LoginPostBody loginPostBody);
+
 }

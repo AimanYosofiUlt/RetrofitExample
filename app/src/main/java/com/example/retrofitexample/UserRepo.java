@@ -2,6 +2,7 @@ package com.example.retrofitexample;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import okhttp3.OkHttpClient;
@@ -41,18 +42,18 @@ public class UserRepo {
         Call<LoginRequest> call = api.login(loginPostBody);
         call.enqueue(new Callback<LoginRequest>() {
             @Override
-            public void onResponse(Call<LoginRequest> call, Response<LoginRequest> response) {
-
+            public void onResponse(@NonNull Call<LoginRequest> call, @NonNull Response<LoginRequest> response) {
                 if (!response.isSuccessful()) {
                     Log.d(TAG, "onResponse is Not Successful: " + response.code());
                     return;
                 }
                 Log.d(TAG, "onResponse isSuccessful: " + response.code());
+
                 loginRequest.postValue(response.body());
             }
 
             @Override
-            public void onFailure(Call<LoginRequest> call, Throwable t) {
+            public void onFailure(@NonNull Call<LoginRequest> call, @NonNull Throwable t) {
                 Log.e(TAG, "onFailure: " + t.getMessage());
             }
         });
